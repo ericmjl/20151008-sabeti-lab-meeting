@@ -1,2 +1,6 @@
-# 20151008-sabeti-lab-meeting
-Research talk on R21 proposal.
+# Genotype-Phenotype Talk
+Research talk.
+
+Locations Spoken:
+
+- Sabeti Lab computational group meeting.

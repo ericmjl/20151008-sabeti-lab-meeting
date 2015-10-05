@@ -4,7 +4,7 @@
 - PhD Candidate
 - Runstadler Lab, MIT Biological Engineering
 
-URL: 
+Repository: github.com/ericmjl/genotype-phenotype-talk
 
 ---
 
@@ -66,7 +66,7 @@ Focus today: pathogen side.
 
 ## Difficulties
 
-<img src="./figures/prelim-data.pdf" height="250" align="center">
+<img src="./figures/prelim-data.png" height="250" align="center">
 
 - Presence of mutation may enhance genotype, but may not necessarily cause a "dangerous levels" of activity 
 - Non-linear mapping from genotype to phenotype - expert rules alone are not enough

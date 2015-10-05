@@ -18,7 +18,7 @@ This is one of the central problems of **using genomic surveillance for pathogen
 
 1. Look for known mutations that are experimentally tested to enhance some pathogenesis-related phenotype.
 2. Experimentally try to evolove those mutations in the lab.
-3. Expert panel of *opinions*.
+3. Expert panel of *opinions*. (reference: CDC **I**nfluenza **R**isk **A**ssessment **T**ool)
 
 ## How it should be done
 

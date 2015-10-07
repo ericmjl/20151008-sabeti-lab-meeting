@@ -131,7 +131,7 @@ The specific pathogen I work with is the Influenza A Virus.
 class Influenza(Pathogen):
     def __init__(self):
         self.substitution_rate = 10**(-3)  # in units subst/(nt.yr)
-        self.polymerase_genes = set([1, 2, 3, 5])`
+        self.polymerase_genes = set([1, 2, 3, 5])
         self.segments = range(1,9)
         self.can_reassort = self.has_segments(True)
 ```

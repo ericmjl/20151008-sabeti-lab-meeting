@@ -123,6 +123,7 @@ new_virus_risk = risk_profile.predict(new_virus)
 - **Parallel problems**: HIV drug resistance
 
 [Stanford HIV Drug Resistance Database][stanford_db]: 
+
 1. comprehensive
 2. high quality standardized data
 3. sequence matched to fold drug resistance phenotype

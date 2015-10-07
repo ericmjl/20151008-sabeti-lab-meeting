@@ -6,6 +6,8 @@
 
 Repository: [http://bit.ly/gptalk-em][github_repo]
 
+(This is my one repo with really bad commit messages. You have been warned.)
+
 [github_repo]: http://bit.ly/gptalk-em
 ---
 

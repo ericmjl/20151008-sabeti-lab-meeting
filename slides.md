@@ -1,5 +1,6 @@
 # Data science for pathogen genomic surveillance: predicting phenotype from genotype
 
+
 - Eric J. Ma
 - PhD Candidate
 - Runstadler Lab, MIT Biological Engineering
@@ -12,6 +13,7 @@ Repository: [http://bit.ly/gptalk-em][github_repo]
 ---
 
 ## A little about me
+
 
 - 5th year PhD Candidate in the Runstadler Lab, MIT Biological Engineering.
 --

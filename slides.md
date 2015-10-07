@@ -16,11 +16,7 @@ Repository: [http://bit.ly/gptalk-em][github_repo]
 
 
 - 5th year PhD Candidate in the Runstadler Lab, MIT Biological Engineering.
---
-
-- I solve infectious disease data science problems using the Python programming language. 
---
-
+- I solve infectious disease data science problems using the Python programming language.
 - Specific problems to date:
     + Computing the quantitative importance of reticulate evolutionary strategies for pathogen host switches. (*in writing*)
     + Quantitatively predicting viral phenotype from sequence data. (*today's talk*)
@@ -76,20 +72,11 @@ More on host later, today's focus is on pathogens.
 ## Difficulties
 
 <img src="./figures/prelim-data.png" height="250" align="center">
---
 
 - **Sufficiency/Necessity**: Presence of mutation may enhance phenotype, but may not necessarily cause a "dangerous phenotype levels" 
---
-
 - **Epistasis**: Non-linear mapping from genotype to phenotype - expert rules alone are not enough
---
-
 - **Data**: Lack of high quality genotype-phenotype data
---
-
 - **Experiments**: Few assays measure biochemical phenotype that is plausibly related to pathogenesis
---
-
 - **Biology**: Novel sequence diversity generated through error-prone polymerase
 
 ---
@@ -97,49 +84,31 @@ More on host later, today's focus is on pathogens.
 ## Vision
 
 <img src="./figures/summary-figure.png" width="700">
---
-
 - **Biochemical assays**: quantitative measure *relevant* to pathogenesis
---
-
 - **Characterize**: population diversity
---
-
 - **Machine learning**: learn mapping of phenotype from genotype.
---
-
 - **Model**: risk profile.
 
 ---
 
 ## Vision in Code
 
---
 ```python
 # Collect data
 assay_data = [ReplicationRate(data1), 
               DrugResistance(data2), 
               AntigenicDistance(data3)]
-```
 
---
-```python
 # Train ML models
 models = []
 for data in assay_data:
     model = MachineLearningModel(data)
     model.train()
     models.append(model)
-```
 
---
-```python
 # Compute risk profile
 risk_profile = AggregateModelResults(models)
-```
 
---
-```python
 # Make predictions
 new_virus = Sequences(viral_sequence)
 new_virus_risk = risk_profile.predict(new_virus)
@@ -150,11 +119,8 @@ new_virus_risk = risk_profile.predict(new_virus)
 ## Can we do this?
 
 <img src="./figures/yes-we-can.jpg">
---
 
 - **Parallel problems**: HIV drug resistance
-
---
 
 [Stanford HIV Drug Resistance Database][stanford_db]: 
 1. comprehensive

@@ -4,8 +4,9 @@
 - PhD Candidate
 - Runstadler Lab, MIT Biological Engineering
 
-Repository: github.com/ericmjl/genotype-phenotype-talk
+Repository: [http://bit.ly/gptalk-em][github_repo]
 
+[github_repo]: http://bit.ly/gptalk-em
 ---
 
 ## A little about me
@@ -13,10 +14,10 @@ Repository: github.com/ericmjl/genotype-phenotype-talk
 - 5th year PhD Candidate in the Runstadler Lab, MIT Biological Engineering.
 --
 
-- I solve infectious disease data science problems in Python. 
+- I solve infectious disease data science problems using the Python programming language. 
 --
 
-- Specific problems I'm working on to date:
+- Specific problems to date:
     + Computing the quantitative importance of reticulate evolutionary strategies for pathogen host switches. (*in writing*)
     + Quantitatively predicting viral phenotype from sequence data. (*today's talk*)
     + Building my own influenza DBJ assembler. (*for fun*)
@@ -25,13 +26,11 @@ Repository: github.com/ericmjl/genotype-phenotype-talk
 
 ---
 
-## The Problem
+## The Problem(s)
 
 Given only its genomic sequence, how do we tell whether a pathogen is going to be dangerous or not?
 
-This is one of the central problems of **using genomic surveillance for pathogen risk assessment**.
-
-Problem is, *we can't do it really well right now...*
+How can we better **use genomic surveillance for pathogen risk assessment**?
 
 ---
 
@@ -55,24 +54,27 @@ class Influenza(Pathogen):
 
 
 ## How genomic surveillance is done now
-
 1. Look for known mutations that are experimentally tested to enhance some pathogenesis-related phenotype.
 2. Experimentally try to evolove those mutations in the lab.
-3. Expert panel of *opinions*. (reference: CDC **I**nfluenza **R**isk **A**ssessment **T**ool)
+3. Expert panel inferring rules from publications. (reference: [CDC **I**nfluenza **R**isk **A**ssessment **T**ool][irat])
 
 ## How we think genomic surveillance should be done
-
-1. Quantitative biochemical measures of pathogenesis.
+1. Quantitative biochemical measures relevant to pathogenesis.
 2. Standardized, safe, and scalable biochemical assays to match genotype and phenotype.
 3. Measurements done on both host *and* pathogen.
+
+More on host later, today's focus is on pathogens.
+
+[irat]: http://www.cdc.gov/flu/pandemic-resources/tools/risk-assessment.htm
 
 ---
 
 ## Difficulties
 
 <img src="./figures/prelim-data.png" height="250" align="center">
+--
 
-- **Sufficiency and Necessity**: Presence of mutation may enhance genotype, but may not necessarily cause a "dangerous levels" of activity 
+- **Sufficiency/Necessity**: Presence of mutation may enhance phenotype, but may not necessarily cause a "dangerous phenotype levels" 
 --
 
 - **Epistasis**: Non-linear mapping from genotype to phenotype - expert rules alone are not enough
@@ -91,42 +93,101 @@ class Influenza(Pathogen):
 ## Vision
 
 <img src="./figures/summary-figure.png" width="700">
+--
 
-- Identify biochemical assays that quantitatively measure some property that is plausibly **relevant** to pathogenesis.
-- Characterize population diversity for that protein.
-- Train machine learning models on predictive features, to learn mapping of phenotype from genotype.
-- Characterize risk profile.
+- **Biochemical assays**: quantitative measure *relevant* to pathogenesis
+--
+
+- **Characterize**: population diversity
+--
+
+- **Machine learning**: learn mapping of phenotype from genotype.
+--
+
+- **Model**: risk profile.
 
 ---
 
-## Vision (Python redux)
+## Vision in Code
 
+--
 ```python
-assays = [ReplicationRate(data1), 
-          DrugResistance(data2), 
-          AntigenicDistance(data3)]
+# Collect data
+assay_data = [ReplicationRate(data1), 
+              DrugResistance(data2), 
+              AntigenicDistance(data3)]
+```
 
+--
+```python
+# Train ML models
 models = []
-for assay in assays:
-    model = MachineLearningModel(assay)
+for data in assay_data:
+    model = MachineLearningModel(data)
     model.train()
     models.append(model)
+```
 
+--
+```python
+# Compute risk profile
 risk_profile = AggregateModelResults(models)
+```
 
+--
+```python
+# Make predictions
+new_virus = Sequences(viral_sequence)
 new_virus_risk = risk_profile.predict(new_virus)
 ```
 
 ---
 
-## Can this be done?
+## Can we do this?
 
 <img src="./figures/yes-we-can.jpg">
 --
 
-- Parallel problems are found with drug resistance to HIV.
+- **Parallel problems**: HIV drug resistance
 
-Stanford HIV Drug Resistance Database: 
-- comprehensive
-- high quality 
-- sequence matched to fold drug resistance phenotype
+--
+
+[Stanford HIV Drug Resistance Database][stanford_db]: 
+1. comprehensive
+2. high quality standardized data
+3. sequence matched to fold drug resistance phenotype
+
+[stanford_db]: http://hivdb.stanford.edu
+
+---
+
+## Live Demo
+
+- [static version][github]
+
+[github]: https://github.com/ericmjl/hiv-resistance-prediction/blob/master/Predict%20HIV%20Genotype%20from%20Phenotype%20-%20Custom%20Funcs.ipynb
+
+- Tools used
+    - [scikit-learn][sklearn] (aka sklearn): general purpose machine learning library
+    - [nolearn][nolearn]: sklearn API-compatible neural network library
+
+[sklearn]: http://scikit-learn.org/stable/
+[nolearn]: https://pythonhosted.org/nolearn/
+
+---
+
+## With Thanks
+
+<img src="./figures/runlab-logo.png">
+
+- [Jon Runstadler][runlab] (advisor, MIT)
+- [Islam Hussein][ihus] (data, MIT)
+- [Mark Bathe][lcbb] (committee chair & GPU access, MIT)
+- [JP Onnela][jp] (committee member, HSPH)
+- [Danny Park][dpark] (invitation, Broad Institute)
+
+[dpark]: http://www.sabetilab.org/daniel-j-park/
+[ihus]: http://www.islamhussein.com
+[runlab]: https://runstadlerlab.mit.edu
+[lcbb]: http://lcbb.mit.edu
+[jp]: http://www.hsph.harvard.edu/onnela-lab/

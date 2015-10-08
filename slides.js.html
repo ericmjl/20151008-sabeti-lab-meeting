@@ -77,9 +77,9 @@ code {
 - PhD Candidate
 - Runstadler Lab, MIT Biological Engineering
 
-Repository: [http://bit.ly/gptalk-em][github_repo]
+Follow slides online: [http://bit.ly/gptalk-em][github_repo]
 
-(This is my one repo with really bad commit messages. You have been warned.)
+(This repo has really bad commit messages. You have been warned.)
 
 [github_repo]: http://bit.ly/gptalk-em
 
@@ -100,14 +100,21 @@ Repository: [http://bit.ly/gptalk-em][github_repo]
 
 ## A little about me
 
-- 5th year PhD Candidate in the Runstadler Lab, MIT Biological Engineering.
+- 5th year PhD Candidate & Resident Hacker in the Runstadler Lab, MIT Biological Engineering.
 - Self-taught 3 year-old Pythonista.
 - I solve infectious disease data science problems using the Python programming language.
 - Specific problems to date:
     + Computing the quantitative importance of reticulate evolutionary strategies for pathogen host switches. (*in writing*)
     + Quantitatively predicting viral phenotype from sequence data. (*today's talk*)
-    + Building my own influenza DBJ assembler. (*for fun*)
+    + Building my own influenza DBG assembler. (*for fun*)
     + Figuring out how to phase influenza genomes from mixed infections. (*not just for fun*)
+
+---
+
+## Today's Goals
+
+1. Outline R21 proposal to predict phenotype from genotype.
+2. Show with live code that, given high quality data, it is easy to get up and going.
 
 ---
 
@@ -140,17 +147,17 @@ class Influenza(Pathogen):
 ---
 
 
-## How genomic surveillance is done now
-1. Look for known mutations that are experimentally tested to enhance some pathogenesis-related phenotype.
-2. Experimentally try to evolove those mutations in the lab.
-3. Expert panel inferring rules from publications. (reference: [CDC **I**nfluenza **R**isk **A**ssessment **T**ool][irat])
+## How influenza genomic surveillance is done now
+1. Chase down outbreaks.
+2. Look for known mutations that are experimentally tested to enhance some pathogenesis-related phenotype.
+3. Experimentally try to evolove those mutations in the lab.
+4. Expert panel inferring rules from publications. (reference: [CDC **I**nfluenza **R**isk **A**ssessment **T**ool][irat])
 
 ## How we think genomic surveillance should be done
-1. Quantitative biochemical measures relevant to pathogenesis.
-2. Standardized, safe, and scalable biochemical assays to match genotype and phenotype.
-3. Measurements done on both host *and* pathogen.
-
-More on host later, today's focus is on pathogens.
+1. Sample source before sink.
+2. Quantitative biochemical measures relevant to pathogenesis.
+3. Standardized, safe, and scalable biochemical assays to match genotype and phenotype.
+4. Measurements done on both host *and* pathogen.
 
 [irat]: http://www.cdc.gov/flu/pandemic-resources/tools/risk-assessment.htm
 
@@ -163,8 +170,20 @@ More on host later, today's focus is on pathogens.
 - **Sufficiency/Necessity**: Presence of mutation may enhance phenotype, but may not necessarily cause a "dangerous phenotype levels" 
 - **Epistasis**: Non-linear mapping from genotype to phenotype - expert rules alone are not enough
 - **Data**: Lack of high quality genotype-phenotype data
-- **Experiments**: Few assays measure biochemical phenotype that is plausibly related to pathogenesis
+- **Experiments**: Not many assays measure biochemical phenotype that is plausibly related to pathogenesis
 - **Biology**: Novel sequence diversity generated through error-prone polymerase
+
+---
+
+## Our Plan: Characterize the Polymerase
+
+<img src="./figures/experimental-workflow.png" width="700">
+
+- **Rational** to cover polymorphic diversity.
+- **High throughput** library construction & verification
+- **Matched** phenotype from genotype
+- **Machine learning** models to predict RNA replication rate
+- **Open data** via web interface and API 
 
 ---
 
@@ -238,7 +257,6 @@ new_virus_risk = risk_profile.predict(new_virus)
 
 1. **Quantitative Precision**: Precision medicine needs to be complemented with precision prevention. 
 2. **Predictive Surveillance**: We can tell what will be dangerous before it jumps to humans & farms.
-3. 
 
 ---
 
@@ -251,6 +269,8 @@ new_virus_risk = risk_profile.predict(new_virus)
 - [Mark Bathe][lcbb] (committee chair & GPU access, MIT)
 - [JP Onnela][jp] (committee member, HSPH)
 - [Danny Park][dpark] (invitation, Broad Institute)
+
+I'd love to set a time to chat with everybody!
 
 [dpark]: http://www.sabetilab.org/daniel-j-park/
 [ihus]: http://www.islamhussein.com
